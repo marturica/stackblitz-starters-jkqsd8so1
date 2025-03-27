@@ -1,0 +1,91 @@
+<fast-card>
+  <h2>User Details</h2>
+  
+  <div>
+    <fast-button appearance="accent" (click)="print()">Get User Data</fast-button>
+    
+  </div>
+  <div>
+  <fast-button appearance="accent" (click)="getPosts(4)">Get User Posts</fast-button>
+  </div>
+  <br />
+  
+   <pre>{{postUserData | json}}</pre>
+
+  
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" name="id"  formControlName="id">
+    <div>
+      <label>
+        Name
+        <fast-text-field
+          type="text"
+          name="name"
+          id="name"
+          formControlName="name"
+          appearance="filled"
+          placeholder="User Name"
+          
+          ngDefaultControl
+          required
+        />
+      </label>
+    </div>
+    <br />
+    <div>
+      <label>
+        User Name
+        <fast-text-field
+          formControlName="userName"
+          type="text"
+          name="userName"
+          id="userName"
+          placeholder="User Display Name"
+          
+          ngDefaultControl
+          required
+        />
+      </label>
+    </div>
+    <br />
+    <div>
+      <label>
+        Email
+        <fast-text-field
+          type="email"
+          formControlName="email"
+          name="email"
+          id="email"
+          placeholder="user@email.com"
+          
+          ngDefaultControl
+          required
+        />
+      </label>
+    </div>
+    <br />
+    <br />
+    <fast-button 
+      type="submit" 
+      appearance="accent"
+      [disabled]="userForm.invalid || isSubmitting"
+    >
+      <span *ngIf="!isSubmitting">Submit</span>
+      <span *ngIf="isSubmitting">Submitting...</span>
+  </fast-button>
+
+  </form>
+  <br /><br />
+  <div class="search-container">
+  <label>
+  Filter Post
+  <input
+    type="text" 
+    [(ngModel)]="searchTerm" 
+    (input)="onSearch()"
+    placeholder="Search posts..."
+  />
+  </label>
+</div>
+  <pre>{{ filteredPosts | json}}</pre>
+</fast-card>
