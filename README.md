@@ -1,3 +1,2 @@
-# stackblitz-starters-jkqsd8so1
+# Angular essential functionalities
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/marturica/stackblitz-starters-jkqsd8so1)
